@@ -1,0 +1,14 @@
+{
+    "name": "punk/fake-router",
+    "authors": [
+        {
+            "name": "Rafael Rufino",
+            "email": "rafaelrufino14@hotmail.com"
+        }
+    ],   
+    "autoload": {
+        "psr-4": {
+            "Punk\\": "src"
+        }
+    }
+}
