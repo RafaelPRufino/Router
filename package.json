@@ -1,6 +1,6 @@
 {
   "name": "punk_router",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "dependencies": {
     "semantic-release": "^17.4.2"
