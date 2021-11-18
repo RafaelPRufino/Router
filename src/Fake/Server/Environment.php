@@ -125,6 +125,32 @@ class Environment {
     }
 
     /**
+     * Fetch GET
+     *
+     * This method returns a union of GET and POST data as a key-value array, or the value
+     * of the array key if requested; if the array key does not exist, NULL is returned.
+     *
+     * @param  string           $key
+     * @return array|mixed|null
+     */
+    public function get() {
+       return $_GET;
+    }
+
+     /**
+     * Fetch POST
+     *
+     * This method returns a union of GET and POST data as a key-value array, or the value
+     * of the array key if requested; if the array key does not exist, NULL is returned.
+     *
+     * @param  string           $key
+     * @return array|mixed|null
+     */
+    public function post() {
+       return $_POST;
+    }
+
+    /**
      * Get Headers
      *
      * This method returns a key-value array of headers sent in the HTTP request, or
