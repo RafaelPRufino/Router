@@ -40,7 +40,7 @@ class Router {
      * @param \Closure $forwardingAgent Agente de processamento da rota
      * @return Void
      */
-    public function get(string $route, string $name, \Closure $callable, $middleware = null, $forwardingAgent = null): void {
+    public function get(string $route, string $name, $callable, $middleware = null, $forwardingAgent = null): void {
         $this->forwarRoute($route, $name, __FUNCTION__, $callable, $middleware, $forwardingAgent);
     }
 
@@ -53,7 +53,7 @@ class Router {
      * @param \Closure $forwardingAgent Agente de processamento da rota
      * @return Void
      */
-    public function post(string $route, string $name, \Closure $callable, $middleware = null, $forwardingAgent = null): void {
+    public function post(string $route, string $name, $callable, $middleware = null, $forwardingAgent = null): void {
         $this->forwarRoute($route, $name, __FUNCTION__, $callable, $middleware, $forwardingAgent);
     }
 
@@ -66,7 +66,7 @@ class Router {
      * @param \Closure $forwardingAgent Agente de processamento da rota
      * @return Void
      */
-    public function put(string $route, string $name, \Closure $callable, $middleware = null, $forwardingAgent = null): void {
+    public function put(string $route, string $name, $callable, $middleware = null, $forwardingAgent = null): void {
         $this->forwarRoute($route, $name, __FUNCTION__, $callable, $middleware, $forwardingAgent);
     }
 
@@ -79,7 +79,7 @@ class Router {
      * @param \Closure $forwardingAgent Agente de processamento da rota
      * @return Void
      */
-    private function forwarRoute(string $uri, string $name, string $method, \Closure $callable, $middleware, $forwardingAgent): void {
+    private function forwarRoute(string $uri, string $name, string $method, $callable, $middleware, $forwardingAgent): void {
         $child = new child(array(strtoupper($method)), $uri);
         $child->setName($name);
         $child->setCallable($callable);

@@ -42,18 +42,20 @@ class Processor {
      * Faz o processamento da rota
      * @param Array $params Parâmetros que devem ser passados para o processamento da rota
      */
-    protected function dispatchCallback(Array $params) {        
-        array_push($params, $this->environment);        
-        
+    protected function dispatchCallback(Array $params) {
+        array_push($params, $this->environment);
+
         $middleware = call_user_func_array($this->route->getMiddleware(), $params);
 
         if ((bool) $middleware && is_array($middleware)) {
-            call_user_func_array($this->route->getCallable(), $middleware);
+            $response = call_user_func_array($this->route->getCallable(), $middleware);
         } else {
-            call_user_func_array($this->route->getCallable(), $params);
+            $response = call_user_func_array($this->route->getCallable(), $params);
         }
+        
+        $response();
     }
-    
+
     /**
      * Route
      * Retorna a rota
@@ -62,4 +64,5 @@ class Processor {
     public function route(): Child {
         return $this->route;
     }
+
 }
